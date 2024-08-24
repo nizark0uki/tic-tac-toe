@@ -31,50 +31,62 @@ const Board = () => {
             }
             setCount(++count);
             checkWin();
+             
         }
-        if (!lock && count === 9){
-            setDraw(prevDraw => prevDraw + 1);
-            setLock(true);
-        }
-        
     }
 
     const checkWin = () => {
         if(game[0] === game[1] && game[1] === game[2] && game[2]!=''){
             setLock(true);
             won(game[0]);
+            
         }
         else if(game[3] === game[4] && game[4] === game[5] && game[5]!=''){
             setLock(true);
             won(game[3]);
+            
         }
         else if(game[6] === game[7] && game[7] === game[8] && game[8]!=''){
             setLock(true);
             won(game[6]);
+            
         }
         else if(game[0] === game[3] && game[3] === game[6] && game[6]!=''){
             setLock(true);
             won(game[0]);
+            
         }
         else if(game[1] === game[4] && game[4] === game[7] && game[7]!=''){
             setLock(true);
             won(game[1]);
+            
         }
         else if(game[2] === game[5] && game[5] === game[8] && game[8]!=''){
             setLock(true);
             won(game[2]);
+            
         }
         else if(game[0] === game[4] && game[4] === game[8] && game[8]!=''){
             setLock(true);
             won(game[0]);
+            
         }
         else if(game[2] === game[4] && game[4] === game[6] && game[6]!=''){
             setLock(true);
             won(game[2]);
+            
         }
+        else if(count === 9){
+            setDraw(prevDraw => prevDraw + 1);
+            setLock(true);
+        }
+        
+        
         
 
     }
+
+    
 
     const won = (winner) => {
         if (winner === 'x'){
